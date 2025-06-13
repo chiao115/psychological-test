@@ -83,12 +83,9 @@ export default function QuestionPage({ questionIndex, nextStep, prevStep }) {
           </div>
 
           <div className="absolute bottom-0 left-0 w-full px-0">
-            <Image
-              src={imageSrc}
-              alt={`配圖 ${questionIndex + 1}`}
-              width={0}
-              height={0}
-              sizes="100vw"
+            <img
+              src={`/1.question/cat-q${questionIndex + 1}.png`}
+              alt="測試圖"
               className="w-full h-auto object-contain"
             />
           </div>
