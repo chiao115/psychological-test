@@ -83,9 +83,12 @@ export default function QuestionPage({ questionIndex, nextStep, prevStep }) {
           </div>
 
           <div className="absolute bottom-0 left-0 w-full px-0">
-            <img
+            <Image
               src={`/1.question/cat-q${questionIndex + 1}.png`}
-              alt="測試圖"
+              alt={`第${questionIndex + 1}題`}
+              width={600}
+              height={600}
+              priority={true} // 可選，讓第一張圖優先載入
               className="w-full h-auto object-contain"
             />
           </div>
