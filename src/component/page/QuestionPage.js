@@ -45,7 +45,7 @@ export default function QuestionPage({ questionIndex, nextStep, prevStep }) {
       {questionIndex > 0 && (
         <button
           onClick={handlePrev}
-          className="absolute top-10 left-10 w-[70px] h-[30px] bg-[#ffc0522e] text-[#F0A224] text-sm font-medium rounded-full \
+          className="absolute top-10 left-10 w-[70px] h-[30px] bg-[#ffc0522e] text-[#F0A224] text-sm font-medium rounded-full 
           border-2 border-[#f0a22483] flex items-center justify-center z-10 transition transform hover:scale-105 active:scale-95 duration-200"
         >
           上一題
@@ -69,7 +69,7 @@ export default function QuestionPage({ questionIndex, nextStep, prevStep }) {
           </h2>
 
           {/* 選項 */}
-          <div className="flex flex-col gap-3 w-full max-w-[300px] mt-4">
+          <div className="flex flex-col gap-3 w-full max-w-[300px] mt-4 z-10">
             {currentQuestion.options.map((option, idx) => (
               <button
                 key={idx}
@@ -82,7 +82,7 @@ export default function QuestionPage({ questionIndex, nextStep, prevStep }) {
             ))}
           </div>
 
-          <div className="absolute bottom-0 left-0 w-full px-0">
+          <div className="absolute bottom-0 left-0 w-full px-0 z-0">
             <img
               src={`/1.question/cat-q${questionIndex + 1}.png`}
               alt="配圖"

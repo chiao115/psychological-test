@@ -13,21 +13,18 @@ export default function ResultPage() {
   const score = psy.score;
   const questions = useQuestionStore().questions;
 
-  // 計算每隻貓咪出現了幾次
   const catAppearCount = {};
   Object.values(questions).forEach((q) => {
     q.options.forEach(({ cat }) => {
       catAppearCount[cat] = (catAppearCount[cat] || 0) + 1;
     });
   });
-  
-  // 將得分除以出現次數，取得平均分數
+
   const normalizedScore = Object.entries(score).map(([cat, val]) => {
-    const count = catAppearCount[cat] || 1; // 預防出現次數為 0
+    const count = catAppearCount[cat] || 1; 
     return [cat, val / count];
   });
   
-  // 取得平均分數最高的貓咪類型
   const topCat = normalizedScore.reduce((a, b) => (a[1] > b[1] ? a : b))[0];
   
 
@@ -89,41 +86,25 @@ export default function ResultPage() {
 
   return (
     <MobileFrame innerBg="/0.start/inBgAll.png">
-      <div className="relative w-full max-w-sm mx-auto pt-8 px-6 text-[#562915]">
-
-      <div className="px-2 mb-4">
-        <div className="flex items-center justify-between w-full">
+      <div className="relative w-full max-w-sm mx-auto pt-20 pb-12 px-6 text-[#562915]">
+        <div className="relative h-[150px] flex items-end justify-between">
           {/* 左側文字 */}
-          <div className="text-left leading-tight w-full max-w-[60%]">
+          <div className="flex flex-col justify-center -translate-y-4 text-left leading-tight max-w-[60%]">
             <div className="text-lg font-medium mb-2 px-1">你是…</div>
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: [0.5, 1.5, 1], opacity: [0, 1, 1] }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="text-4xl font-extrabold"
-            >
-              {name}
-            </motion.div>
+            <div className="text-4xl font-extrabold">{name}</div>
           </div>
 
-          <motion.div
-            initial={{ x: 40, y: -20, scale: 0.8, opacity: 0 }}
-            animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="absolute right-[0px] top-[-3px] z-10"
-          >
+          {/* 右側貓咪圖 */}
+          <div className="absolute bottom-0 right-0">
             <Image
               src={`/3.result/cat/${topCat}.png`}
               alt={`${name}圖像`}
-              width={160}
-              height={160}
+              width={150}
+              height={150}
               className="drop-shadow-md"
             />
-          </motion.div>
+          </div>
         </div>
-      </div>
-
-
 
         {/* 個性描述 */}
         <div style={{ borderRadius: '30px 6px 30px 6px' }}

@@ -30,7 +30,7 @@ export default function HomePage() {
   
   return (
     <div
-      className="w-screen h-screen flex justify-center items-center"
+      className="w-screen min-h-screen flex justify-center items-start overflow-auto py-8"
       style={{
         backgroundImage: 'url("/0.start/AllBG.png")',
         backgroundRepeat: 'no-repeat',
