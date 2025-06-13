@@ -1,3 +1,13 @@
 @import "tailwindcss";
 
+@keyframes smooth-wiggle {
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
+}
 
+.animate-smooth-wiggle {
+  animation: smooth-wiggle 2s ease-in-out infinite;
+}
+
+  
