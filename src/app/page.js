@@ -1,7 +1,7 @@
 'use client';
 import StartPage from '../component/page/StartPage';
 import QuestionPage from '../component/page/QuestionPage';
-import DisplayResultPage from '../component/page/DisplayResultPage';
+import DisplayResultPage from '../component/page/DisplayResultPage'; //為啥這裡會有問題啦！！！
 import ResultPage from '../component/page/ResultPage';
 import { usePsyStore } from './store/store';
 
